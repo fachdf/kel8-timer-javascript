@@ -1,3 +1,19 @@
+if (typeof(Storage) !== "undefined") {
+  if (localStorage.task1_stamp) {
+    if(localStorage.task1_status == "true"){
+      localStorage.setItem("new_timestamp", Math.round(new Date().getTime()/1000));
+      localStorage.task1_stamp = parseInt(localStorage.task1_stamp) + (parseInt(localStorage.new_timestamp) - parseInt(localStorage.last_timestamp))
+    }
+  } else {
+    localStorage.setItem("task1_stamp", 0);
+    localStorage.setItem("task2_stamp", 0);
+    localStorage.setItem("task1_status", "false");
+    localStorage.setItem("task2_status", "false");
+    localStorage.setItem("last_timestamp", Math.round(new Date().getTime()/1000));
+  }
+}
+
+if(localStorage)
 var sw = {
   // (A) INITIALIZE
   etime: null, // HTML time display
@@ -39,9 +55,10 @@ var sw = {
     sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
     sw.temp = hours + " Jam " + mins + " Menit " + secs + " Detik";
   },
-
+  
   // (C) START!
   start: function () {
+    localStorage.task1_status = "true"
     sw.timer = setInterval(sw.tick, 1000);
     sw.ego.value = "Pause";
     sw.ego.removeEventListener("click", sw.start);
@@ -50,11 +67,14 @@ var sw = {
 
   // (D) STOP
   stop: function () {
+    localStorage.task1_stamp = sw.now
+    localStorage.task1_status = "false"
     clearInterval(sw.timer);
     // sw.timer = null;
     sw.ego.value = "Continue";
     sw.ego.removeEventListener("click", sw.stop);
     sw.ego.addEventListener("click", sw.start);
+    
   },
 
   // (E) RESET
@@ -70,3 +90,14 @@ var sw = {
   }
 };
 window.addEventListener("load", sw.init);
+window.onbeforeunload = closingCode;
+function closingCode(){
+  localStorage.setItem("last_timestamp", Math.round(new Date().getTime()/1000));
+  localStorage.task1_stamp = sw.now
+}
+window.onload = function() {
+  if(localStorage.task1_status == "true"){
+    sw.now = localStorage.task1_stamp;
+    sw.start();
+  }
+};
