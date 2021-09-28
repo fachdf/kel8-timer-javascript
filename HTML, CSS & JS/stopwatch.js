@@ -171,11 +171,11 @@ window.onload = function() {
   }
   if(localStorage.jdl_tugas2){
     judul = document.getElementById("jdl_tugas2");
-    judul.innerHTML = localStorage.jdl_tugas1
+    judul.innerHTML = localStorage.jdl_tugas2
   }
   if(localStorage.jdl_tugas3){
     judul = document.getElementById("jdl_tugas3");
-    judul.innerHTML = localStorage.jdl_tugas1
+    judul.innerHTML = localStorage.jdl_tugas3
   }
   
   if (typeof(Storage) !== "undefined") {
