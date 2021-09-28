@@ -96,7 +96,7 @@ var sw = {
       localStorage["status"] = JSON.stringify(stored_status);
     }
     sw.timer = setInterval(sw.tick, 1000);
-    sw.ego.value = "Pause";
+    sw.ego.innerHTML = "Pause";
     sw.ego.removeEventListener("click", sw.start);
     sw.ego.addEventListener("click", sw.stop);
   },
@@ -123,7 +123,7 @@ var sw = {
     }
     clearInterval(sw.timer);
     // sw.timer = null;
-    sw.ego.value = "Continue";
+    sw.ego.innerHTML = "Continue";
     sw.ego.removeEventListener("click", sw.stop);
     sw.ego.addEventListener("click", sw.start);
   },
@@ -153,7 +153,7 @@ var sw = {
       sw.stop();
 
     }
-    sw.ego.value = "Start";
+    sw.ego.innerHTML = "Start";
     sw.now = -1;
     sw.tick();
   }
@@ -165,6 +165,19 @@ window.onbeforeunload = closingCode;
 
 
 window.onload = function() {
+  if(localStorage.jdl_tugas1){
+      judul = document.getElementById("jdl_tugas1");
+      judul.innerHTML = localStorage.jdl_tugas1
+  }
+  if(localStorage.jdl_tugas2){
+    judul = document.getElementById("jdl_tugas2");
+    judul.innerHTML = localStorage.jdl_tugas1
+  }
+  if(localStorage.jdl_tugas3){
+    judul = document.getElementById("jdl_tugas3");
+    judul.innerHTML = localStorage.jdl_tugas1
+  }
+  
   if (typeof(Storage) !== "undefined") {
   
     if (localStorage.stamps) {

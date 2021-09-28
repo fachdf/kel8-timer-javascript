@@ -19,7 +19,7 @@
             Stopwatch
         </div> -->
 
-        <div class="tittle th2">
+        <div id="jdl_tugas2" class="tittle th2">
             Tugas 2
         </div>
       
@@ -57,12 +57,12 @@
         <script src="stopwatch.js"></script>
         <script>
             function search(ele) {
-                localStorage.setItem("jdl", "Tugas 1");
+                localStorage.setItem("jdl_tugas2", "Tugas 2");
 
                 if (event.key === 'Enter') {
-                    judul = document.getElementById("jdl");
-                    localStorage.jdl = ele.value;
-                    localStorage.stus = "true";
+                    judul = document.getElementById("jdl_tugas2");
+                    localStorage.jdl_tugas1 = ele.value;
+                    console.log(ele.value)
                     judul.innerHTML = localStorage.jdl;
 
                 }

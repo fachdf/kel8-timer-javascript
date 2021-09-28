@@ -19,7 +19,7 @@
             Stopwatch
         </div> -->
 
-        <div id="jdl" class="tittle th2">Tugas 1</div>
+        <div id="jdl_tugas1" class="tittle th2">Tugas 1</div>
       
         <br clear:both;>
         <div id="stopwatch">
@@ -27,8 +27,8 @@
             <h3 id="sw-time"></h3>
         
             <!-- CONTROLS -->
-            <button id="sw-go" class="btn-start">Start</button>
-            <button id="sw-rst" class="btn-stop">Stop</button>
+            <button id="sw-go" value="Start" class="btn-start">Start</button>
+            <button id="sw-rst" value="Stop" class="btn-stop">Stop</button>
              
             <p class="text-desc">Total waktu: </p><br>
             <p id="sw-total"></p>
@@ -41,7 +41,7 @@
                 <table class="tbl">
                     <tr>
                         <td> Nama Mata Kuliah </td>
-                        <td > <input type="text" id="nl" onkeydown="search(this)" style="width: 245px"> </td>
+                        <td > <input type="text" id="nl" onkeydown="changeTitle(this)" style="width: 245px"> </td>
                     </tr>
                     <tr>
                           <td>Deskripsi Tugas</td>
@@ -54,13 +54,13 @@
         <!-- <p class="tittle fth">SEMANGAT !!!</div> -->
         <script src="stopwatch.js"></script>
         <script>
-            function search(ele) {
-                localStorage.setItem("jdl", "Tugas 1");
+            function changeTitle(ele) {
+                localStorage.setItem("jdl_tugas1", "Tugas 1");
 
                 if (event.key === 'Enter') {
-                    judul = document.getElementById("jdl");
-                    localStorage.jdl = ele.value;
-                    localStorage.stus = "true";
+                    judul = document.getElementById("jdl_tugas1");
+                    localStorage.jdl_tugas1 = ele.value;
+                    console.log(ele.value)
                     judul.innerHTML = localStorage.jdl;
 
                 }
