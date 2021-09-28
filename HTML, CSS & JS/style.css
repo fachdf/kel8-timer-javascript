@@ -7,15 +7,6 @@
     margin-right: -10px;
     height: 50px;
 }
-
-#navigation {
-    list-style-type: none;
-    margin-top: 19px;
-    padding: 10px;
-    margin-right: 80px;
-    float: right;
-   
-}
   
 .nav {
     font-size: 25px;
@@ -23,7 +14,7 @@
 
 }
 
-#navigation2 {
+#navigation {
     list-style-type: none;
     margin-top: 19px;
     padding: 10px;
@@ -140,4 +131,21 @@ body {
 
 table, th, td {
     border:1px solid black;
+}
+
+.nts{ 
+    width: 50%;
+    margin-left: 32%;
+}
+
+.desc-notes{
+    font-size: 30px;
+    margin: 40px;
+    margin-top: 10px;
+    font-family: "Courier New", Courier, monospace;
+    border: 0px;
+}
+
+table, th, td {
+    border: 0px;
   }

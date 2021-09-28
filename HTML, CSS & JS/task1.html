@@ -7,10 +7,7 @@
     </head>
     <body>
         <div id="header" >
-            <!-- <ul id="navigation" >
-
-            </ul> -->
-            <ul id="navigation2" >
+            <ul id="navigation" >
                 <li class="nav2" style="padding-left:5em" ><a href="task1.html" style="text-decoration:none">Task 1</a></li>
                 <li class="nav2" style="padding-left:1em"><a href="task2.html" style="text-decoration:none">Task 2</a></li>
                 <li class="nav2" style="padding-left:1em"><a href="task3.html" style="text-decoration:none">Task 3</a></li>
@@ -22,9 +19,7 @@
             Stopwatch
         </div> -->
 
-        <div class="tittle th2">
-            Tugas 1
-        </div>
+        <div id="jdl" class="tittle th2">Tugas 1</div>
       
         <br clear:both;>
         <div id="stopwatch">
@@ -39,7 +34,37 @@
             <p id="sw-total"></p>
         </div>
 
+        <div class="nts">
+            <form class="desc-notes">
+                <br><br><br>
+                <!-- <p>Komentar atau Saran</p> -->
+                <table class="tbl">
+                    <tr>
+                        <td> Nama Mata Kuliah </td>
+                        <td > <input type="text" id="nl" onkeydown="search(this)" style="width: 245px"> </td>
+                    </tr>
+                    <tr>
+                          <td>Deskripsi Tugas</td>
+                          <td> <textarea  style="width: 245px; height: 150px;"></textarea> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
         <!-- <p class="tittle fth">SEMANGAT !!!</div> -->
         <script src="stopwatch.js"></script>
+        <script>
+            function search(ele) {
+                localStorage.setItem("jdl", "Tugas 1");
+
+                if (event.key === 'Enter') {
+                    judul = document.getElementById("jdl");
+                    localStorage.jdl = ele.value;
+                    localStorage.stus = "true";
+                    judul.innerHTML = localStorage.jdl;
+
+                }
+            }
+        </script>
     </body>
 </html>
