@@ -200,7 +200,19 @@ window.onload = function() {
         }
         sw.now = stored_stamp[2]
       }
-      
+      var remain = sw.now;
+      var hours = Math.floor(remain / 3600);
+      remain -= hours * 3600;
+      var mins = Math.floor(remain / 60);
+      remain -= mins * 60;
+      var secs = remain;
+
+      // (B2) UPDATE THE DISPLAY TIMER
+      if (hours < 10) { hours = "0" + hours; }
+      if (mins < 10) { mins = "0" + mins; }
+      if (secs < 10) { secs = "0" + secs; }
+      sw.etime.innerHTML = hours + ":" + mins + ":" + secs;
+      sw.temp = hours + " Jam " + mins + " Menit " + secs + " Detik";
     } else {
       var stored_stamp = [0,0,0];
       var stored_status = [0,0,0];
