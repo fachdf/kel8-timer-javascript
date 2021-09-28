@@ -10,3 +10,7 @@
 | Putri Syalwa            | 191524054  |
 | Sabar Muhamad Itikap    | 191524058  |
 | Wafi Khoerun            | 191524064  |
+
+Fitur :
+- Timer menyala walau tab di close
+- Ada 3 timer, apabila salah satu di-start, yang lain pause (apabila ada yang sedang menyala)
