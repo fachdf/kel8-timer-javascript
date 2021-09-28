@@ -4,9 +4,9 @@
 
 | Nama                    | NIM        |
 | ----------------------- | ---------- |
-| Azzam Badruz Zaman      | 1915240    |
-| Herlana                 | 1915240    |
-| Fachri Dhia Fauzan      | 1915240    |
-| Putri Syalwa            | 1915240    |
+| Azzam Badruz Zaman      | 191524034  |
+| Herlana                 | 191524045  |
+| Fachri Dhia Fauzan      | 191524041  |
+| Putri Syalwa            | 191524054  |
 | Sabar Muhamad Itikap    | 191524058  |
-| Wafi Khoerun            | 1915240    |
+| Wafi Khoerun            | 191524064  |
