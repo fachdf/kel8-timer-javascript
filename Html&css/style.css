@@ -7,6 +7,7 @@
     margin-right: -10px;
     
 }
+
 #navigation {
     
     list-style-type: none;
@@ -15,15 +16,15 @@
     margin-right: 80px;
     float: right;
    
-  }
+}
   
 .nav {
     font-size: 25px;
     display: inline;
 
-  }
+}
 
-  #navigation2 {
+#navigation2 {
     
     list-style-type: none;
     margin-top: 19px;
@@ -31,53 +32,94 @@
     margin-right: 80px;
     float: left;
    
-  }
+}
   
 .nav2 {
     font-size: 25px;
     display: inline;
 
-  }
-
+}
 
 body {
     background: #202020;
     color: white;
 }
-button {
-    width: 100px;
-    height: 30px;
-    border: 3px soldi white;
-    border-radius: 50px;
-    background: #202020;
-    color: white;
+
+.tittle {
+    top: 25%;
+    transform: translate(-50%, -55%);
+    margin-top: -20px;
+    position: absolute;
+    font-style: bold;
+}
+
+.th1{
+    font-size: 60px;
+    left: 15%;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.th2{
+    font-size: 75px;
+    left: 50%;
+    top: 35%;
+}
+
+.hd3{
+    font-size: 20px;
+    margin-top: 60%;
+}
+
+#stopwatch {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.text-desc{
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: -10;
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* (B) TIME */
+#sw-time {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    font-size: 100px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+
+/* (C) BUTTONS */
+#sw-rst, #sw-go {
+    box-sizing: border-box;
+    width: 50%;
     cursor: pointer;
-    outline: none;
+    padding: 20px 0;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 325px;
+    border-radius: 50px;
+}
+#sw-rst { background-color: #a32208; }
+#sw-go { background-color: #20a308; }
+#sw-total {
+    font-size: 22px;
+    font-family: "Courier New", Courier, monospace;
+    font-style: bold;
 }
 
-#stopwatchh {
-    font-size: 100px;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}
-
-#tugas {
-    font-size: 100px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-}
-
-#buttons {
-    position: absolute;
-    top: 55%;
-    left: 48.4%;
-    transform: translate(-51.6%, -45%);
-}
-#buttons li {
-    display: inline;
-    padding-left: 10px;
+.fth{
+    font-size: 25px;
+    left: 85%;
+    top: 95%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
