@@ -1,3 +1,23 @@
+if (typeof(Storage) !== "undefined") {
+  
+  if (localStorage.stamps) {
+    var stored_status = JSON.parse(localStorage["status"]);
+    //stored_status = stored_status.replace(/,(?!["{}[\]])/g, "");
+    
+    var stored_stamp = JSON.parse(localStorage["stamps"]);
+    
+
+    localStorage.new_timestamp = Math.round(new Date().getTime()/1000);
+    
+  } else {
+    var stored_stamp = [0,0,0];
+    var stored_status = [0,0,0];
+    localStorage["stamps"] = JSON.stringify(stored_stamp);
+    localStorage["status"] = JSON.stringify(stored_status);
+    localStorage.setItem("last_timestamp", Math.round(new Date().getTime()/1000));
+  }
+}
+
 var sw = {
   // (A) INITIALIZE
   etime: null, // HTML time display
@@ -42,6 +62,18 @@ var sw = {
 
   // (C) START!
   start: function () {
+    if ( document.URL.includes("task1.html") ) {
+      stored_status[0] = 1
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task2.html") ) {
+      stored_status[1] = 1
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task3.html") ) {
+      stored_status[2] = 1
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
     sw.timer = setInterval(sw.tick, 1000);
     sw.ego.value = "Pause";
     sw.ego.removeEventListener("click", sw.start);
@@ -50,6 +82,24 @@ var sw = {
 
   // (D) STOP
   stop: function () {
+    if ( document.URL.includes("task1.html") ) {
+      stored_status[0] = 0 
+      stored_stamp[0] = sw.now
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task2.html") ) {
+      stored_status[1] = 0
+      stored_stamp[1] = sw.now
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task3.html") ) {
+      stored_status[2] = 0
+      stored_stamp[2] = sw.now
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
     clearInterval(sw.timer);
     // sw.timer = null;
     sw.ego.value = "Continue";
@@ -59,6 +109,24 @@ var sw = {
 
   // (E) RESET
   reset: function () {
+    if ( document.URL.includes("task1.html") ) {
+      stored_status[0] = 0 
+      stored_stamp[0] = 0
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task2.html") ) {
+      stored_status[1] = 0
+      stored_stamp[1] = 0
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
+    if ( document.URL.includes("task3.html") ) {
+      stored_status[2] = 0
+      stored_stamp[2] = 0
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+    }
     if (sw.timer != null) {
       sw.total.innerHTML = sw.temp;
       sw.stop();
@@ -69,4 +137,82 @@ var sw = {
     sw.tick();
   }
 };
+
+function closingCode(){
+  localStorage.setItem("last_timestamp", Math.round(new Date().getTime()/1000));
+  if ( document.URL.includes("task1.html") ) {
+    stored_stamp[0] = sw.now
+    localStorage["stamps"] = JSON.stringify(stored_stamp);
+
+  }
+  if ( document.URL.includes("task2.html") ) {
+    stored_stamp[1] = sw.now
+    localStorage["stamps"] = JSON.stringify(stored_stamp);
+
+  }
+  if ( document.URL.includes("task3.html") ) {
+    stored_stamp[2] = sw.now
+    localStorage["stamps"] = JSON.stringify(stored_stamp);
+  }
+}
 window.addEventListener("load", sw.init);
+window.onbeforeunload = closingCode;
+
+
+window.onload = function() {
+  if (typeof(Storage) !== "undefined") {
+    console.log("masuk ga")
+    if (localStorage.stamps) {
+      var stored_status = JSON.parse(localStorage["status"]);
+      //stored_status = stored_status.replace(/,(?!["{}[\]])/g, "");
+      
+      var stored_stamp = JSON.parse(localStorage["stamps"]);
+  
+      localStorage.new_timestamp = Math.round(new Date().getTime()/1000);
+      for (let i = 0; i < stored_status.length; i++) {
+        if(stored_status[0] == 1 ){
+          stored_stamp[0] = parseInt(stored_stamp[0]) + (parseInt(localStorage.new_timestamp) - parseInt(localStorage.last_timestamp))
+          localStorage["stamps"] = JSON.stringify(stored_stamp);
+
+          sw.start();
+
+          break;
+        }
+        if(stored_status[1] == 1 ){
+          stored_stamp[1] = parseInt(stored_stamp[1]) + (parseInt(localStorage.new_timestamp) - parseInt(localStorage.last_timestamp))
+          localStorage["stamps"] = JSON.stringify(stored_stamp);
+          sw.start();
+          
+          break;
+        }
+        if(stored_status[2] == 1 ){
+  
+          stored_stamp[2] = parseInt(stored_stamp[2]) + (parseInt(localStorage.new_timestamp) - parseInt(localStorage.last_timestamp))
+          localStorage["stamps"] = JSON.stringify(stored_stamp);
+          sw.start();
+
+          break;
+        }
+      }
+  
+      if ( document.URL.includes("task1.html") ) {
+        sw.now = stored_stamp[0]
+      }
+      if ( document.URL.includes("task2.html") ) {
+        sw.now = stored_stamp[1]
+        console.log("im here")
+      }
+      if ( document.URL.includes("task3.html") ) {
+        sw.now = stored_stamp[2]
+      }
+      
+    } else {
+      var stored_stamp = [0,0,0];
+      var stored_status = [0,0,0];
+      localStorage["stamps"] = JSON.stringify(stored_stamp);
+      localStorage["status"] = JSON.stringify(stored_status);
+      localStorage.setItem("last_timestamp", Math.round(new Date().getTime()/1000));
+    }
+  }
+  
+}; 
