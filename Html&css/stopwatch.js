@@ -44,6 +44,7 @@ var sw = {
   start: function () {
     sw.timer = setInterval(sw.tick, 1000);
     sw.ego.value = "Pause";
+    sw.erst.value = "Stop";
     sw.ego.removeEventListener("click", sw.start);
     sw.ego.addEventListener("click", sw.stop);
   },
@@ -53,6 +54,7 @@ var sw = {
     clearInterval(sw.timer);
     // sw.timer = null;
     sw.ego.value = "Continue";
+    sw.erst.value = "Restart";
     sw.ego.removeEventListener("click", sw.stop);
     sw.ego.addEventListener("click", sw.start);
   },
@@ -65,6 +67,7 @@ var sw = {
 
     }
     sw.ego.value = "Start";
+    sw.erst.value = "Stop";
     sw.now = -1;
     sw.tick();
   }
