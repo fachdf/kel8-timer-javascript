@@ -166,16 +166,16 @@ window.onbeforeunload = closingCode;
 
 window.onload = function() {
   if(localStorage.jdl_tugas1){
-      judul = document.getElementById("jdl_tugas1");
-      judul.innerHTML = localStorage.jdl_tugas1
+      var judul1 = document.getElementById("jdl_tugas1");
+      judul1.innerHTML = localStorage.jdl_tugas1
   }
   if(localStorage.jdl_tugas2){
-    judul = document.getElementById("jdl_tugas2");
-    judul.innerHTML = localStorage.jdl_tugas2
+      var judul2 = document.getElementById("jdl_tugas2");
+      judul2.innerHTML = localStorage.jdl_tugas2
   }
   if(localStorage.jdl_tugas3){
-    judul = document.getElementById("jdl_tugas3");
-    judul.innerHTML = localStorage.jdl_tugas3
+     var judul3 = document.getElementById("jdl_tugas3");
+     judul3.innerHTML = localStorage.jdl_tugas3
   }
   
   if (typeof(Storage) !== "undefined") {
