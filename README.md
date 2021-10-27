@@ -1,4 +1,4 @@
-# Kelompok 9 - D43B Teknik Informatika
+# Kelompok 8 - D43B Teknik Informatika
 
 ## Tugas ini ditujukan untuk memenuhi tugas Pengembangan Web
 
